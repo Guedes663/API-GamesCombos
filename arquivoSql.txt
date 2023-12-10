@@ -1,0 +1,17 @@
+CREATE TABLE usuario(
+    idUsuario VARCHAR(36) PRIMARY KEY,
+    nomeUsuario VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    role VARCHAR(5) NOT NULL
+);
+
+CREATE TABLE combos(
+    idCombo INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nomePersonagem VARCHAR(255),
+    jogo VARCHAR(255),
+    combo VARCHAR(255),
+    videoCombo VARCHAR(255),
+    usuarioId VARCHAR(36) NOT NULL,
+    FOREIGN KEY (usuarioId) REFERENCES usuario(idUsuario) ON UPDATE CASCADE ON DELETE CASCADE 
+);
